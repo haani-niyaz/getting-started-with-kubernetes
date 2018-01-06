@@ -1,0 +1,15 @@
+# No ServiceType which means it will default to ClusterIP which as we expect is not 
+# accessible to the external world.
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongodb-svc
+  labels:
+    app: rsvpdb
+spec:
+  ports:
+    - port: 27017
+      protocol: TCP
+  selector:
+    appdb: rsvpdb # Set the backend to mongodb 
