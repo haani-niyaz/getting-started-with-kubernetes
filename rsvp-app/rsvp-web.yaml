@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rsvp
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: rsvp
+    spec:
+      containers:
+        - name: rsvp-app
+          image: teamcloudyuga/rsvpapp
+          env:
+            - name: MONGODB_HOST
+              value: mongodb-svc  # Service name 
+          ports:
+            - containerPort: 5000
+              name: web-port # Give the ContainerPort a name that can be used in the Service definition
