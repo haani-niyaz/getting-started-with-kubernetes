@@ -15,6 +15,16 @@ spec:
           env:
             - name: MONGODB_HOST
               value: mongodb-svc  # Service name 
+            - name: TEXT1
+              valueFrom:
+                configMapKeyRef:
+                  name: customer1-cm
+                  key: TEXT1
+            - name: TEXT2
+              valueFrom:
+                configMapKeyRef:
+                  name: customer1-cm
+                  key: TEXT2
           ports:
             - containerPort: 5000
               name: web-port # Give the ContainerPort a name that can be used in the Service definition
