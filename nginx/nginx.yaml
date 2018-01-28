@@ -10,4 +10,4 @@ spec:
  - name: nginx
    image: nginx:1.7.9
    ports:
-   - containerPort: 80
+   - containerPort: 80 # Pod exposes this port that the container is running on
