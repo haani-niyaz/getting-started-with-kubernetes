@@ -84,5 +84,31 @@ $ kubectl get secret bitbucket-properties -o yaml
 2. Run: `$ echo '<encoded text>' | base64 --decode`
 
 
+## Replication Controllers
+
+### Delete `rc` but leave pods running
+
+```
+$ kubectl delete rc <rc-name> --cascade=false
+```
+
+## Volumes
+
+
+### Persistent Volume Creation in AWS
+
+
+Link:
+https://kubernetes.io/docs/concepts/storage/volumes/#awselasticblockstore
+
+
+Step 1:
+
+```
+$ aws ec2 create-volume --availability-zone=ap-southeast-2a --size=3 --volume-type=gp2
+```
+
+**Note:** Make sure the zone matches your k8s cluster zone.
+
 
 
